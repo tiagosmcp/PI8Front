@@ -1,4 +1,6 @@
-import "./style.css"
+import { Link } from "react-router-dom";
+import Header from "../../components/Header/index.jsx";
+import "./style.css";
 
 const App = () => {
   const entradas = [
@@ -23,7 +25,7 @@ const App = () => {
       description: "Porção de 250g",
       image: "/src/pages/Home/pictures/batata.png",
     },
-  ]
+  ];
 
   const sanduiches = [
     {
@@ -47,31 +49,31 @@ const App = () => {
       description: "Smash de 180g",
       image: "/src/pages/Home/pictures/hamburguer.png",
     },
-  ]
+  ];
 
   const bebidas = [
     {
       id: 1,
-      name: "Cerveja",
+      name: "Refrigerante",
       price: "R$ 8,00",
       description: "Long neck 350ml",
       image: "/src/pages/Home/pictures/coca.png",
     },
     {
       id: 2,
-      name: "Cerveja",
+      name: "Refrigerante",
       price: "R$ 8,00",
       description: "Long neck 350ml",
       image: "/src/pages/Home/pictures/coca.png",
     },
     {
       id: 3,
-      name: "Cerveja",
+      name: "Refrigerante",
       price: "R$ 8,00",
       description: "Long neck 350ml",
       image: "/src/pages/Home/pictures/coca.png",
     },
-  ]
+  ];
 
   const ProductCard = ({ product }) => (
     <div className="product-card">
@@ -81,14 +83,15 @@ const App = () => {
           alt={product.name}
           className="product-image"
           onError={(e) => {
-            e.target.src = "/placeholder.svg?height=140&width=200&text=Image+Not+Found"
+            e.target.src =
+              "/placeholder.svg?height=140&width=200&text=Image+Not+Found";
           }}
           onLoad={(e) => {
-            const img = e.target
+            const img = e.target;
             if (img.naturalWidth > img.naturalHeight) {
-              img.classList.add("landscape")
+              img.classList.add("landscape");
             } else {
-              img.classList.add("portrait")
+              img.classList.add("portrait");
             }
           }}
         />
@@ -99,7 +102,7 @@ const App = () => {
         <p className="product-description">{product.description}</p>
       </div>
     </div>
-  )
+  );
 
   const Section = ({ title, subtitle, products }) => (
     <div className="section">
@@ -108,9 +111,11 @@ const App = () => {
           <h2 className="section-title">{title}</h2>
           <p className="section-subtitle">{subtitle}</p>
         </div>
-        <a href="#" className="see-more">
+
+        {/* LINK PARA OUTRA TELA */}
+        <Link to="/lista" className="see-more">
           Veja Mais <span className="arrow-right">›</span>
-        </a>
+        </Link>
       </div>
       <div className="products-grid">
         {products.map((product) => (
@@ -118,40 +123,35 @@ const App = () => {
         ))}
       </div>
     </div>
-  )
+  );
 
   return (
     <div className="app">
-      {/* Header */}
-      <header className="header">
-        <button className="back-button">
-          <span className="back-arrow">‹</span>
-        </button>
-
-        <div className="search-container">
-          <span className="search-icon">🔍</span>
-          <input type="text" placeholder="Pesquisar" className="search-input" />
-        </div>
-
-        <button className="menu-button">
-          <span className="menu-icon">☰</span>
-        </button>
-
-        <button className="cart-button">
-          <span className="cart-icon">🛒</span>
-        </button>
-      </header>
+      {/* Header reutilizado */}
+      <Header />
 
       {/* Main Content */}
       <main>
-        <Section title="ENTRADAS" subtitle="O melhor dos pestiscos" products={entradas} />
+        <Section
+          title="ENTRADAS"
+          subtitle="O melhor dos pestiscos"
+          products={entradas}
+        />
 
-        <Section title="SANDUÍCHES" subtitle="O melhor dos sanduíches" products={sanduiches} />
+        <Section
+          title="SANDUÍCHES"
+          subtitle="O melhor dos sanduíches"
+          products={sanduiches}
+        />
 
-        <Section title="BEBIDAS" subtitle="O melhor das bebidas" products={bebidas} />
+        <Section
+          title="BEBIDAS"
+          subtitle="O melhor das bebidas"
+          products={bebidas}
+        />
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
