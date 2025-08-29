@@ -1,0 +1,378 @@
+
+.burger-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.burger-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+.burger-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.burger-image:not([src]),
+.burger-image[src=""] {
+  opacity: 0;
+}
+
+.product-info {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title-price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ingredients-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ingredients-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button-wrapper {
+  padding-top: 16px;
+}
+
+.add-to-cart-button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive adjustments */
+/* Mobile Small (320px - 480px) */
+@media (max-width: 480px) {
+  .burger-container {
+    max-width: 100%;
+  }
+
+  .burger-image {
+    height: 200px;
+  }
+
+  .product-info {
+    padding: 20px 12px;
+    gap: 12px;
+  }
+
+  .product-title {
+    font-size: 18px;
+  }
+
+  .product-price {
+    font-size: 16px;
+  }
+
+  .product-description {
+    font-size: 13px;
+  }
+
+  .ingredients-title {
+    font-size: 15px;
+  }
+
+  .ingredients-list {
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .add-to-cart-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Tablet Portrait (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .burger-container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .burger-image {
+    height: 280px;
+  }
+
+  .product-info {
+    padding: 28px 20px;
+    gap: 20px;
+  }
+
+  .product-title {
+    font-size: 22px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+
+  .product-description {
+    font-size: 15px;
+  }
+
+  .ingredients-title {
+    font-size: 17px;
+  }
+
+  .ingredients-list {
+    font-size: 15px;
+    gap: 10px;
+  }
+
+  .add-to-cart-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
+
+/* Tablet Landscape & Small Desktop (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .burger-container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  .burger-image {
+    height: 320px;
+  }
+
+  .product-info {
+    padding: 32px 24px;
+    gap: 24px;
+  }
+
+  .product-title {
+    font-size: 24px;
+  }
+
+  .product-price {
+    font-size: 22px;
+  }
+
+  .product-description {
+    font-size: 16px;
+  }
+
+  .ingredients-title {
+    font-size: 18px;
+  }
+
+  .ingredients-list {
+    font-size: 16px;
+    gap: 12px;
+  }
+
+  .add-to-cart-button {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .burger-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .burger-image {
+    height: 360px;
+  }
+
+  .product-info {
+    padding: 40px 32px;
+    gap: 28px;
+  }
+
+  .product-title {
+    font-size: 26px;
+  }
+
+  .product-price {
+    font-size: 24px;
+  }
+
+  .product-description {
+    font-size: 17px;
+  }
+
+  .ingredients-title {
+    font-size: 19px;
+  }
+
+  .ingredients-list {
+    font-size: 17px;
+    gap: 14px;
+  }
+
+  .add-to-cart-button {
+    padding: 18px 36px;
+    font-size: 17px;
+  }
+}
+
+/* Large Desktop (1441px+) */
+@media (min-width: 1441px) {
+  .burger-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .burger-image {
+    height: 400px;
+  }
+
+  .product-info {
+    padding: 48px 40px;
+    gap: 32px;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+
+  .product-price {
+    font-size: 26px;
+  }
+
+  .product-description {
+    font-size: 18px;
+  }
+
+  .ingredients-title {
+    font-size: 20px;
+  }
+
+  .ingredients-list {
+    font-size: 18px;
+    gap: 16px;
+  }
+
+  .add-to-cart-button {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .burger-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+  .product-info {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .product-title {
+    font-size: 18px;
+  }
+
+  .burger-image {
+    height: 180px;
+  }
+}
+
+/* Loading state for images */
+.burger-image-wrapper.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Utility classes for different image handling scenarios */
+.burger-image.cover-mode {
+  object-fit: cover;
+}
+
+.burger-image.contain-mode {
+  object-fit: contain;
+}
+
+.burger-image.fill-mode {
+  object-fit: fill;
+}
