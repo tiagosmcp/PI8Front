@@ -2,6 +2,8 @@
 
 import { Link } from "react-router-dom";
 import "./stylePedConf.css";
+import pedidoconfImg from "../../assets/pictures/pedidoconf.png";
+
 
 export default function PedidoConfirmado() {
   return (
@@ -9,11 +11,7 @@ export default function PedidoConfirmado() {
       <div className="confirmation-wrapper">
         {/* Food Illustration */}
         <div className="food-illustration">
-          <img
-            src="/assets/pictures/pedidoconf.png" // substitua pela imagem real do pedido
-            alt="Food illustration with serving dome"
-            className="food-image"
-          />
+          <img src={pedidoconfImg} alt="Food illustration" className="food-image" />
         </div>
 
         {/* Title */}
