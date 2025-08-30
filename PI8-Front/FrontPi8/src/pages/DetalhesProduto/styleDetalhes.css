@@ -1,202 +1,138 @@
 /* ===== Container principal ===== */
-.burger-container {
+.app-container {
   width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
   min-height: 100vh;
-}
-
-/* ===== Wrapper da imagem (fundo e centralização) ===== */
-.burger-image-wrapper {
-  width: 100%;
+  background-color: #fafafa;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f8f8;
+  flex-direction: column;
+}
+
+/* ===== Layout principal ===== */
+.product-container {
+  max-width: 1000px;
+  margin: 24px auto;
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== Imagem responsiva ===== */
-.burger-image {
-  display: block;
+/* ===== Imagem ===== */
+.product-image-wrapper {
   width: 100%;
-  max-width: 100%;
-  height: auto;           /* <- chave para responsividade */
-  object-fit: contain;    /* use .cover-mode se quiser preencher cortando */
-  object-position: center;
-  transition: opacity 0.3s ease;
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Esconde transição quando não há src */
-.burger-image:not([src]),
-.burger-image[src=""] {
-  opacity: 0;
+.product-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* ===== Conteúdo ===== */
-.product-info {
-  padding: 24px 16px;
+.product-image:hover {
+  transform: scale(1.02);
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .product-image {
+    max-height: 280px;
+    object-fit: contain; /* mostra a imagem inteira */
+  }
+}
+
+/* ===== Detalhes ===== */
+.product-details {
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.title-price-section {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .product-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
   margin: 0;
 }
 
 .product-price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  color: #333;
+  color: #e63946;
   margin: 0;
 }
 
 .product-description {
-  font-size: 14px;
-  color: #666;
+  font-size: 15px;
+  color: #555;
   line-height: 1.6;
-  margin: 0;
 }
 
 /* ===== Ingredientes ===== */
 .ingredients-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.ingredients-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: #666;
-  margin: 0;
-}
-
-.ingredients-list {
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.ingredients-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.ingredients-list {
+  list-style: disc inside;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   font-size: 14px;
   color: #666;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 /* ===== Botão ===== */
-.button-wrapper {
-  padding-top: 16px;
+.add-to-cart-button {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove sublinhado do Link */
+  background-color: #10b981;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%; /* Para preencher horizontalmente o container */
+  text-align: center; /* Centraliza o texto caso não use flex */
 }
 
 .add-to-cart-button {
-  width: 100%;
-  background-color: #4caf50;
-  color: #fff;
-  font-weight: 500;
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  background-color: #059669;
+  transform: translateY(-2px);
 }
-
-.add-to-cart-button:hover {
-  background-color: #45a049;
-}
-
-/* ===== Skeleton de carregamento (opcional) ===== */
-.burger-image-wrapper.loading {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* ===== Utilidades para modos da imagem ===== */
-.burger-image.cover-mode { object-fit: cover; }
-.burger-image.contain-mode { object-fit: contain; }
-.burger-image.fill-mode { object-fit: fill; }
 
 /* ===== Responsividade ===== */
-@media (max-width: 480px) {
-  .product-info {
-    padding: 20px 12px;
-    gap: 12px;
+@media (min-width: 768px) {
+  .product-container {
+    flex-direction: row;
   }
-  .product-title { font-size: 18px; }
-  .product-price { font-size: 16px; }
-  .product-description { font-size: 13px; }
-  .ingredients-title { font-size: 15px; }
-  .ingredients-list { font-size: 13px; gap: 6px; }
-  .add-to-cart-button { padding: 10px 20px; font-size: 13px; }
-}
 
-@media (min-width: 481px) and (max-width: 768px) {
-  .product-info { padding: 28px 20px; gap: 20px; }
-  .product-title { font-size: 22px; }
-  .product-price { font-size: 20px; }
-  .product-description { font-size: 15px; }
-  .ingredients-title { font-size: 17px; }
-  .ingredients-list { font-size: 15px; gap: 10px; }
-  .add-to-cart-button { padding: 14px 28px; font-size: 15px; }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .product-info { padding: 32px 24px; gap: 24px; }
-  .product-title { font-size: 24px; }
-  .product-price { font-size: 22px; }
-  .product-description { font-size: 16px; }
-  .ingredients-title { font-size: 18px; }
-  .ingredients-list { font-size: 16px; gap: 12px; }
-  .add-to-cart-button { padding: 16px 32px; font-size: 16px; }
-}
-
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .product-info { padding: 40px 32px; gap: 28px; }
-  .product-title { font-size: 26px; }
-  .product-price { font-size: 24px; }
-  .product-description { font-size: 17px; }
-  .ingredients-title { font-size: 19px; }
-  .ingredients-list { font-size: 17px; gap: 14px; }
-  .add-to-cart-button { padding: 18px 36px; font-size: 17px; }
-}
-
-@media (min-width: 1441px) {
-  .product-info { padding: 48px 40px; gap: 32px; }
-  .product-title { font-size: 28px; }
-  .product-price { font-size: 26px; }
-  .product-description { font-size: 18px; }
-  .ingredients-title { font-size: 20px; }
-  .ingredients-list { font-size: 18px; gap: 16px; }
-  .add-to-cart-button { padding: 20px 40px; font-size: 18px; }
-}
-
-/* High DPI */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .burger-image {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+  .product-image-wrapper {
+    flex: 1;
   }
-}
 
-/* Modo paisagem em telas baixas */
-@media (orientation: landscape) and (max-height: 600px) {
-  .product-info { padding: 16px; gap: 12px; }
-  .product-title { font-size: 18px; }
+  .product-details {
+    flex: 1;
+    padding: 32px;
+  }
 }

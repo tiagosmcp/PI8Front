@@ -83,21 +83,25 @@
 
 /* Botão de Detalhes */
 .details-button {
-  background-color: #4caf50;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove sublinhado do Link */
+  background-color: #10b981;
   color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 20px;
-  font-size: 14px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
   font-weight: 500;
+  font-size: 1rem;
   cursor: pointer;
-  margin: 16px auto;
-  transition: background-color 0.2s ease;
-  align-self: center;
+  transition: background 0.2s;
+  width: 100%; /* Para preencher horizontalmente o container */
+  text-align: center; /* Centraliza o texto caso não use flex */
 }
 
-.details-button:hover {
-  background-color: #45a049;
+.details-button {
+  background-color: #059669;
+  transform: translateY(-2px);
 }
 
 /* Responsividade */

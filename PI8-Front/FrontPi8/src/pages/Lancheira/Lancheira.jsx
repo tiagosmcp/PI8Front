@@ -1,22 +1,22 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import Header from "../../components/Header"
-import "./styleLancheira.css"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "../../components/Header";
+import "./styleLancheira.css";
 
 export default function Lancheira() {
-  const [cartItems, setCartItems] = useState([])
-  const [observation, setObservation] = useState("")
-  const navigate = useNavigate()
+  const [cartItems, setCartItems] = useState([]);
+  const [observation, setObservation] = useState("");
 
   const removeItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id))
-  }
+    setCartItems(cartItems.filter((item) => item.id !== id));
+  };
 
-  const total = cartItems.reduce((sum, item) => sum + item.price, 0)
+  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div className="lancheira-page">
-      <Header />
+      {/* Passando a rota de volta como prop para o Header */}
+      <Header backTo="/" />
 
       <div className="lancheira-container">
         <h2 className="lancheira-title">Minha Lancheira</h2>
@@ -28,11 +28,7 @@ export default function Lancheira() {
           ) : (
             cartItems.map((item) => (
               <div key={item.id} className="cart-item">
-                <img
-                  className="item-image"
-                  src={item.image}
-                  alt={item.name}
-                />
+                <img className="item-image" src={item.image} alt={item.name} />
                 <div className="item-details">
                   <h3 className="item-name">{item.name}</h3>
                   <p className="item-price">R${item.price.toFixed(2)}</p>
@@ -65,23 +61,17 @@ export default function Lancheira() {
           <h2 className="total-text">TOTAL: R${total.toFixed(2)}</h2>
         </div>
 
-        {/* Botões */}
+        {/* Botões com Link para navegação via React Router */}
         <div className="action-buttons">
-          <button
-            className="add-items-button"
-            onClick={() => navigate("/")}
-          >
+          <Link to="/" className="add-items-button">
             Adicionar mais itens
-          </button>
+          </Link>
 
-          <button
-            className="order-button"
-            onClick={() => navigate("/pedido")} // futura tela de pedido
-          >
+          <Link to="/pedConf" className="order-button">
             FAZER PEDIDO
-          </button>
+          </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }

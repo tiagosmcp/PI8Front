@@ -1,15 +1,8 @@
 "use client"
-
+import { Link } from "react-router-dom";
 import "./stylePagamento.css"
 
-export default function Pagamento({ onPaymentSelect }) {
-  const handlePaymentClick = (paymentMethod) => {
-    console.log(`${paymentMethod} selected`)
-    if (onPaymentSelect) {
-      onPaymentSelect(paymentMethod)
-    }
-  }
-
+export default function Pagamento() {
   return (
     <div className="payment-container">
       <div className="payment-wrapper">
@@ -18,21 +11,26 @@ export default function Pagamento({ onPaymentSelect }) {
 
         {/* Payment Options */}
         <div className="payment-options">
-          <button className="payment-button" onClick={() => handlePaymentClick("Crédito")}>
+          <Link to="/pagamento/credito" className="payment-button">
             CRÉDITO
-          </button>
+          </Link>
 
-          <button className="payment-button" onClick={() => handlePaymentClick("Débito")}>
+          <Link to="/pagamento/debito" className="payment-button">
             DÉBITO
-          </button>
+          </Link>
 
-          <button className="payment-button" onClick={() => handlePaymentClick("PIX")}>
+          <Link to="/pagamento/pix" className="payment-button">
             PIX
-          </button>
+          </Link>
 
-          <button className="payment-button" onClick={() => handlePaymentClick("Dinheiro")}>
+          <Link to="/pagamento/dinheiro" className="payment-button">
             DINHEIRO
-          </button>
+          </Link>
+
+          {/* Botão voltar ao menu */}
+          <Link to="/" className="payment-button back-button">
+            VOLTAR AO MENU
+          </Link>
         </div>
       </div>
     </div>

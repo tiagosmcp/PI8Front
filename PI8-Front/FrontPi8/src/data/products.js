@@ -2,6 +2,7 @@ import batata from "../assets/pictures/batata.png";
 import hamburguer from "../assets/pictures/hamburguer.png";
 import coca from "../assets/pictures/coca.png";
 
+
 export const entradas = [
   {
     id: 1,

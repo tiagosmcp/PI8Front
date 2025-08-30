@@ -23,14 +23,16 @@ export default function Detalhes() {
       <Header backTo={`/lista/${categoria}`} />
 
       <div className="product-container">
+        {/* Imagem do produto */}
         <div className="product-image-wrapper">
           <img
-          className="product-image"
+            className="product-image"
             src={produto.image}
             alt={produto.name}
           />
         </div>
 
+        {/* Detalhes */}
         <div className="product-details">
           <h1 className="product-title">{produto.name}</h1>
           <p className="product-price">{produto.price}</p>
@@ -47,7 +49,9 @@ export default function Detalhes() {
             </div>
           )}
 
-          <button className="add-to-cart-button">Adicionar à Lancheira</button>
+          <button className="add-to-cart-button">
+            Adicionar à Lancheira
+          </button>
         </div>
       </div>
     </div>

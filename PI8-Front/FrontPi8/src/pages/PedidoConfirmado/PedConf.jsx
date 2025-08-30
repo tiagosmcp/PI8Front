@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import "./stylePedConf.css"
+import { Link } from "react-router-dom";
+import "./stylePedConf.css";
 
-export default function PedidoConfirmado({ onBackToMenu }) {
+export default function PedidoConfirmado() {
   return (
     <div className="confirmation-container">
       <div className="confirmation-wrapper">
         {/* Food Illustration */}
         <div className="food-illustration">
           <img
-            src=""
+            src="/assets/pictures/pedidoconf.png" // substitua pela imagem real do pedido
             alt="Food illustration with serving dome"
             className="food-image"
           />
@@ -32,11 +33,11 @@ export default function PedidoConfirmado({ onBackToMenu }) {
         {/* Wait Time */}
         <p className="wait-time">Tempo de espera: 30Min</p>
 
-        {/* Back Button */}
-        <button className="back-button" onClick={onBackToMenu}>
+        {/* Back Button - Navegação para home / cardápio */}
+        <Link to="/" className="confirmation-button">
           Voltar ao cardápio
-        </button>
+        </Link>
       </div>
     </div>
-  )
+  );
 }

@@ -38,20 +38,20 @@
 }
 
 .payment-button {
-  width: 100%;
-  /* Responsive button height */
-  height: clamp(3rem, 8vw, 4rem);
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove sublinhado do Link */
   background-color: #10b981;
   color: white;
-  font-weight: 600;
-  /* Responsive font size for buttons */
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  border-radius: clamp(0.5rem, 2vw, 0.875rem);
-  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  /* Added touch-friendly padding */
-  padding: 0 1rem;
+  transition: background 0.2s;
+  width: 100%; /* Para preencher horizontalmente o container */
+  text-align: center; /* Centraliza o texto caso não use flex */
 }
 
 .payment-button:hover {

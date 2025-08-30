@@ -20,13 +20,15 @@ const Header = ({ backTo = null }) => {
         <input type="text" placeholder="Pesquisar" className="search-input" />
       </div>
 
-      <button className="menu-button">
-        <span className="menu-icon">☰</span>
-      </button>
+      {/* Botão do conta agora é Link */}
+      <Link to="/conta" className="conta-button">
+        <span className="conta-icon">☰</span>
+      </Link>
 
-      <button className="cart-button">
+      {/* Botão do carrinho agora é Link */}
+      <Link to="/lancheira" className="cart-button">
         <span className="cart-icon">🛒</span>
-      </button>
+      </Link>
     </header>
   );
 };
