@@ -1,3 +1,4 @@
+// src/pages/DetalhesProduto/Detalhes.jsx
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { productsData } from "../../data/products";
@@ -12,42 +13,41 @@ export default function Detalhes() {
     return (
       <div className="app-container">
         <Header backTo={`/lista/${categoria}`} />
-        <p style={{ padding: "24px" }}>Produto não encontrado.</p>
+        <p className="not-found">Produto não encontrado.</p>
       </div>
     );
   }
 
   return (
-    <div className="burger-container">
+    <div className="app-container">
       <Header backTo={`/lista/${categoria}`} />
 
-      <div className="burger-image-wrapper">
-        <img
-          src={produto.image}
-          alt={produto.name}
-          className="burger-image cover-mode"
-        />
-      </div>
+      <div className="product-container">
+        <div className="product-image-wrapper">
+          <img
+          className="product-image"
+            src={produto.image}
+            alt={produto.name}
+          />
+        </div>
 
-      <div className="product-info">
-        <div className="title-price-section">
-          <h1 className="product-title">{produto.name.toUpperCase()}</h1>
+        <div className="product-details">
+          <h1 className="product-title">{produto.name}</h1>
           <p className="product-price">{produto.price}</p>
-        </div>
+          <p className="product-description">{produto.description}</p>
 
-        <p className="product-description">{produto.description}</p>
+          {produto.ingredients && produto.ingredients.length > 0 && (
+            <div className="ingredients-section">
+              <h2 className="ingredients-title">Ingredientes</h2>
+              <ul className="ingredients-list">
+                {produto.ingredients.map((ing, index) => (
+                  <li key={index}>{ing}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-        <div className="ingredients-section">
-          <h2 className="ingredients-title">Ingredientes</h2>
-          <div className="ingredients-list">
-            {produto.ingredients.map((ing, index) => (
-              <p key={index}>{ing}</p>
-            ))}
-          </div>
-        </div>
-
-        <div className="button-wrapper">
-          <button className="add-to-cart-button">ADICIONAR À LANCHEIRA</button>
+          <button className="add-to-cart-button">Adicionar à Lancheira</button>
         </div>
       </div>
     </div>
